@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maya Ka'an | El Aliado de los Transportistas</title>
+    <title>Maya Ka'an | Pasadía Familiar</title>
     
-    <!-- Fuentes y Recursos Externos -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Fuentes dinámicas pero maduras/profesionales -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Estilos CSS Integrados -->
     <style>
         :root {
-            --primary-dark: #101426; /* Azul marino del logo */
-            --accent-gold: #C1B583; /* Dorado del marco del logo */
-            --accent-blue: #0055FF; /* Azul brillante */
-            --bg-light: #F6F7F2; /* Fondo crema */
-            --text-color: #333333;
+            --primary: #E65100; /* Naranja Terracota (Dinámico pero apetitoso/adulto) */
+            --secondary: #0277BD; /* Azul Océano (Confianza, relajación, alberca) */
+            --accent: #FFB300; /* Amarillo Ámbar (Llamados a la acción) */
+            --dark: #1E293B; /* Texto principal oscuro */
+            --light: #F8FAFC; /* Fondo claro */
+            --white: #FFFFFF;
         }
 
         * {
@@ -26,15 +28,15 @@
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4, .brand {
             font-family: 'Montserrat', sans-serif;
-            color: var(--primary-dark);
+            text-transform: uppercase;
         }
 
         .container {
@@ -43,270 +45,364 @@
             margin: 0 auto;
         }
 
-        /* Navbar */
-        .navbar {
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 10px 0;
+        /* --- BOTONES DINÁMICOS Y PROFESIONALES --- */
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
         }
 
-        .flex-nav {
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(230, 81, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background-color: #BF360C;
+            box-shadow: 0 6px 20px rgba(230, 81, 0, 0.4);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--dark);
+            box-shadow: 0 4px 15px rgba(255, 179, 0, 0.3);
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-3px);
+            background-color: #FFA000;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        .navbar {
+            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            height: 70px;
-            object-fit: contain;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-dark);
-            color: #ffffff;
-            padding: 10px 24px;
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--dark);
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: 700;
-            transition: background 0.3s;
+            letter-spacing: -1px;
+        }
+        
+        .nav-logo span {
+            color: var(--secondary);
         }
 
-        .btn-primary:hover {
-            background-color: var(--accent-gold);
-            color: var(--primary-dark);
-        }
-
-        /* Hero Section */
+        /* --- HERO SECTION --- */
         .hero {
-            height: 80vh;
-            min-height: 550px;
-            background-size: cover;
-            background-position: center;
+            background-color: var(--dark);
+            color: var(--white);
             display: flex;
             align-items: center;
-            text-align: center;
-            color: white;
-            background-color: var(--primary-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
         }
 
         .hero-content {
-            max-width: 850px;
-            margin: 0 auto;
+            padding: 80px 5% 80px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            color: var(--accent);
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-size: 1rem;
         }
 
         .hero h1 {
-            color: white;
             font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.1;
+            margin-bottom: 25px;
+            font-weight: 900;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 40px;
-            color: #e0e0e0;
-        }
-
-        .btn-whatsapp-large {
-            display: inline-block;
-            background-color: #25D366;
-            color: white;
-            padding: 18px 40px;
             font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            margin-bottom: 40px;
+            color: #E2E8F0;
+            max-width: 500px;
         }
 
-        .btn-whatsapp-large:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-            background-color: #20BA56;
+        .hero-image {
+            background-image: url('https://res.cloudinary.com/dh3cjks1a/image/upload/v1786494623/Captura_de_pantalla_2026-08-11_182815_oflayl.jpg');
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
         }
 
-        .btn-whatsapp-large i {
-            margin-right: 8px;
-            font-size: 1.4rem;
+        /* --- SECCIÓN DE ACTIVIDADES (Lo que importa a los papás) --- */
+        .features {
+            padding: 80px 0;
+            background-color: var(--light);
         }
 
-        /* Benefits Section */
-        .benefits {
-            padding: 100px 0;
+        .section-header {
             text-align: center;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
             margin-bottom: 60px;
-            position: relative;
-            display: inline-block;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--accent-gold);
-            margin: 15px auto 0;
-            border-radius: 2px;
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
         }
 
-        .grid-3 {
+        .section-header h2 span {
+            color: var(--secondary);
+        }
+
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
         .card {
-            background: white;
-            padding: 50px 30px;
+            background: var(--white);
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-bottom: 5px solid var(--accent-gold);
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--secondary);
+            transition: transform 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
         }
 
-        .card .icon {
-            font-size: 3.5rem;
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary);
             margin-bottom: 20px;
         }
 
         .card h3 {
+            font-size: 1.3rem;
             margin-bottom: 15px;
-            font-size: 1.5rem;
         }
 
-        .card p {
-            color: #666;
+        /* --- SECCIÓN DE COMIDA (El gran atractivo adulto) --- */
+        .food-section {
+            background-color: var(--white);
+            padding: 100px 0;
         }
 
-        /* Footer */
-        .footer {
-            background-color: var(--primary-dark);
-            color: white;
-            padding: 50px 0 30px;
-        }
-
-        .footer-logo {
-            height: 90px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 2px solid var(--accent-gold);
-            background-color: var(--bg-light);
-            padding: 5px;
-        }
-
-        .footer p {
-            color: #a0a0a0;
-            font-size: 0.9rem;
-        }
-
-        /* Floating WhatsApp */
-        .float-wa {
-            position: fixed;
-            width: 65px;
-            height: 65px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 35px;
-            box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
-            z-index: 1000;
-            display: flex;
+        .food-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: transform 0.3s;
         }
 
-        .float-wa:hover {
-            transform: scale(1.1);
+        .food-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            .benefits {
-                padding: 60px 0;
-            }
-            .card {
-                padding: 30px 20px;
-            }
+        .food-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .food-img-large {
+            grid-column: span 2;
+            height: 300px;
+        }
+
+        .food-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .food-content p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            color: #475569;
+        }
+
+        /* --- BANDA B2B PARA AGENCIAS --- */
+        .agency-banner {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0;
+            background-image: linear-gradient(rgba(30, 41, 59, 0.95), rgba(30, 41, 59, 0.95)), url('https://turismocampeche.com/wp-content/uploads/2019/12/Camaron-al-Coco.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .agency-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .agency-text h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .agency-text p {
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0F172A;
+            color: #94A3B8;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-image { clip-path: none; min-height: 300px; order: -1; }
+            .hero-content { padding: 50px 5%; text-align: center; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { margin: 0 auto 30px; }
+            
+            .feature-grid { grid-template-columns: 1fr; }
+            .food-grid { grid-template-columns: 1fr; }
+            .food-images { order: 2; }
+            
+            .agency-content { flex-direction: column; text-align: center; gap: 30px; }
         }
     </style>
 </head>
 <body>
-    <header class="navbar">
-        <div class="container flex-nav">
-            <!-- He ajustado el nombre de la imagen al archivo exacto que me pasaste -->
-            <img src="449439316_3665913527006872_9036142269929705310_n.jpg" alt="Maya Ka'an Logo" class="logo" onerror="this.src='https://via.placeholder.com/150x60?text=Maya+Kaan';">
-            <a href="https://wa.me/529999999999?text=Hola,%20soy%20transportista%20y%20me%20interesa%20hacer%20alianza%20con%20Hotel%20Maya%20Kaan." target="_blank" class="btn-primary small-btn">Hacer Alianza</a>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="nav-logo">MAYA <span>KA'AN</span></a>
+            <a href="https://wa.me/529999999999?text=Hola,%20quiero%20reservar%20un%20pasadía%20familiar" class="btn btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">Reservar Pasadía</a>
+        </div>
+    </nav>
+
+    <!-- HERO: Enfocado a los padres -->
+    <header class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-tag"><i class="fas fa-sun"></i> A SOLO 1 HORA DE LA CIUDAD</div>
+                <h1>Diversión para ellos.<br>Descanso para ti.</h1>
+                <p>Olvida el estrés de organizar el fin de semana. En Maya Ka'an tenemos albercas seguras para que los niños gasten energía, mientras tú te relajas con la mejor comida de la región.</p>
+                <div>
+                    <a href="https://wa.me/529999999999?text=Hola,%20quiero%20asegurar%20mi%20lugar%20este%20fin%20de%20semana" class="btn btn-accent">¡Asegura tu lugar hoy!</a>
+                </div>
+            </div>
+            <div class="hero-image"></div>
         </div>
     </header>
 
-    <!-- He ajustado el fondo a la imagen de la piscina que me pasaste -->
-    <section class="hero" style="background-image: linear-gradient(rgba(16, 20, 38, 0.7), rgba(16, 20, 38, 0.9)), url('DJI_0978 (1).jpg');">
-        <div class="container hero-content">
-            <h1>Tu Parada Estratégica en la Ruta Mérida - Campeche</h1>
-            <p>Sabemos que el camino es largo. En <strong>Maya Ka'an</strong> somos el partner ideal para agencias de transporte, logísticas y choferes: comida rápida y auténtica, espacio seguro y el mejor descanso antes de seguir tu ruta.</p>
-            <a href="https://wa.me/5219811671455?text=Hola,%20soy%20transportista%20y%20me%20interesa%20hacer%20alianza%20con%20Hotel%20Maya%20Kaan." target="_blank" class="btn-whatsapp-large">
-                <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-            </a>
-        </div>
-    </section>
-
-    <section class="benefits container">
-        <h2 class="section-title">¿Por qué somos tu mejor aliado?</h2>
-        <div class="grid-3">
-            <div class="card">
-                <div class="icon">📍</div>
-                <h3>Ubicación Perfecta</h3>
-                <p>A pie de carretera, a 1 hr de Mérida y Campeche. Sin desviarte de tu ruta principal, con fácil acceso para unidades y amplio estacionamiento.</p>
+    <!-- LO QUE OFRECEMOS (El "Plan" resuelto) -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>EL PLAN <span>PERFECTO</span></h2>
             </div>
-            <div class="card">
-                <div class="icon">🍲</div>
-                <h3>Sazones del Camino Real</h3>
-                <p>Comida regional auténtica, servida rápido. Sabemos que tu tiempo vale oro, por eso te atendemos al instante con un menú robusto.</p>
-            </div>
-            <div class="card">
-                <div class="icon">🌴</div>
-                <h3>Descanso Total</h3>
-                <p>Instalaciones amplias con alberca, palapas y sombra. El lugar ideal para que tu equipo recargue energías de forma segura y cómoda.</p>
+            <div class="feature-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-swimming-pool"></i></div>
+                    <h3>Alberca Segura</h3>
+                    <p>Instalaciones limpias y amplias para que tus hijos se diviertan en el agua todo el día sin preocupaciones.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Gastronomía Local</h3>
+                    <p>No más comida rápida. Disfruta de un menú con sazón campechano real, servido directo en tu mesa.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-cocktail"></i></div>
+                    <h3>Sombra y Relax</h3>
+                    <p>Palapas tradicionales y un ambiente tranquilo para que tú también sientas que saliste de vacaciones.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container text-center">
-            <img src="449439316_3665913527006872_9036142269929705310_n.jpg" alt="Maya Ka'an Logo" class="footer-logo" onerror="this.style.display='none';">
-            <p>© 2026 Hotel Maya Ka'an. Sazones del Camino Real.</p>
+    <!-- SECCIÓN DE COMIDA (El gancho visual) -->
+    <section class="food-section">
+        <div class="container food-grid">
+            <div class="food-content">
+                <h2>EL SABOR DEL<br>CAMINO REAL</h2>
+                <p>Sabemos que un buen día en familia exige una buena comida. En nuestro restaurante no hay improvisaciones: preparamos platillos abundantes, frescos y con la auténtica receta de Campeche y Yucatán.</p>
+                <p><strong>Especialidades:</strong> Camarones al coco, panuchos, cochinita y mariscos frescos.</p>
+                <a href="https://wa.me/529999999999?text=Quiero%20ver%20el%20menú%20del%20restaurante" class="btn btn-primary" style="margin-top: 20px;">Ver el Menú Completo</a>
+            </div>
+            <div class="food-images">
+                <!-- Fotos proporcionadas por el usuario -->
+                <img src="https://turismocampeche.com/wp-content/uploads/2019/12/Camaron-al-Coco.webp" alt="Camarones al Coco" class="food-img food-img-large">
+                <img src="https://www.viajabonito.mx/wp-content/uploads/2021/04/comida-tipica-de-campeche-portada-01.jpg" alt="Comida Regional" class="food-img">
+                <img src="https://res.cloudinary.com/dh3cjks1a/image/upload/v1786494630/Captura_de_pantalla_2026-08-11_182911_jn2swo.jpg" alt="Platillo Maya Kaan" class="food-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- BANDA B2B: AGENCIAS DE VIAJE -->
+    <section class="agency-banner">
+        <div class="container agency-content">
+            <div class="agency-text">
+                <h2>¿ERES AGENTE DE VIAJES?</h2>
+                <p>Somos la parada estratégica ideal entre Mérida y Campeche. Ofrecemos tarifas preferenciales, comisiones atractivas y capacidad para autobuses y tours organizados.</p>
+            </div>
+            <div>
+                <a href="https://wa.me/529999999999?text=Hola,%20soy%20agente%20de%20viajes%20y%20me%20interesa%20hacer%20alianza" class="btn btn-accent"><i class="fas fa-handshake"></i> Hablemos de Negocios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <h3 style="color: white; margin-bottom: 10px; font-size: 1.5rem;">MAYA KA'AN</h3>
+            <p>Sazones del Camino Real © 2026</p>
         </div>
     </footer>
 
-    <!-- Botón flotante de WhatsApp -->
-    <a href="https://wa.me/529999999999?text=Hola,%20soy%20transportista%20y%20me%20interesa%20hacer%20alianza%20con%20Hotel%20Maya%20Kaan." target="_blank" class="float-wa">
-        <i class="fab fa-whatsapp my-float"></i>
-    </a>
 </body>
 </html>
